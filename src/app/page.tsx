@@ -8,7 +8,7 @@ import Footer from "@/components/common/Footer";
 import ReviewSlider from "@/components/common/ReviewSlider";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-
+const CI_CD_ROLLBACK_TEST = ;
 export default function Home() {
   return (
     <main>
