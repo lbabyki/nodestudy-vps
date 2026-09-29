@@ -26,5 +26,6 @@ export default async function mailer(
   } catch (error) {
     console.log("Something went wrong while sending mail.");
     console.error(error);
+    throw error;
   }
 }

@@ -66,19 +66,21 @@ export default function OtpVerification({
   const handleResendOTP = async () => {
     const loading = toast.loading("Sending OTP");
 
-    const response = await fetch("/api/signup", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    })
-      .then((res) => res.json())
-      .catch(() => {
-        toast.dismiss(loading);
-        toast.error("Problem while sending OTP");
-        return;
-      });
+    let response;
+
+    try {
+      response = await fetch("/api/signup", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      }).then((res) => res.json());
+    } catch (error) {
+      toast.dismiss(loading);
+      toast.error("Problem while sending OTP");
+      return;
+    }
 
     if (!response.success) {
       toast.dismiss(loading);

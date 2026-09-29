@@ -45,7 +45,7 @@ export class User {
   image: string;
 
   @Column({ nullable: true })
-  verificationOtp: string;
+  verificationOtp: string | null;
 
   @Column({ default: false })
   isSignedIn: boolean;
@@ -74,7 +74,7 @@ export class User {
   approved: boolean;
 
   @Column({ nullable: true })
-  token: string;
+  token: string | null;
 
   @Column({
     type: "enum",
